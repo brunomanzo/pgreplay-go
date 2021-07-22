@@ -21,24 +21,3 @@ builds:
     env:
       - CGO_ENABLED=0
 
-nfpm:
-  name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-  vendor: GoCardless
-  homepage: https://github.com/gocardless/pgreplay-go
-  maintainer: GoCardless Engineering <engineering@gocardless.com>
-  description: &description PostgreSQL load testing tool
-  formats:
-    - deb
-
-brew:
-  github:
-    owner: gocardless
-    name: homebrew-taps
-  commit_author:
-    name: GoCardless Engineering
-    email: engineering@gocardless.com
-  folder: Formula
-  homepage: https://github.com/gocardless/pgreplay-go
-  description: *description
-  test: system "#{bin}/pgreplay version"
-  install: bin.install "pgreplay"
